@@ -19,29 +19,32 @@ export const darkTheme = {
 export const DarkMode = styled.button`
   margin-right: 5%;
   border: none;
-  background-color: blue;
   height: 40px;
   width: 40px;
   cursor: pointer;
   color: ${({ theme }) => theme.text};
+  background: transparent;
 `;
 
 export const AppWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 export const MainWrapper = styled.section`
-  display: flex;
-  justify-content: center;
-  margin-top: 10vh;
+  width: 40vw;
+  height: fit-content;
+  min-height: 90vh;
+  margin: 0 auto;
 `;
+
 
 export const GlobalStyles = createGlobalStyle`
   body {
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
-    font-family: 'Karla', sans-serif;
-    transition: all 0.10s linear;
+    font-family: 'Open Sans', sans-serif;
+    transition: all 0.30s linear;
   }
 `

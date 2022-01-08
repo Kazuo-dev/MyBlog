@@ -6,10 +6,12 @@ export default function Nav({ children }) {
   return (
     <NavWrapper>
       <NavBar>
+        <Link href="/">
+          <Logo> DoDoDev! </Logo>
+        </Link>
         <ul>
-            <Link href="/about"> Sobre mi </Link>
-            <Link href="/"> Home </Link>
             <Link href="/blog"> Blog </Link>
+            <Link href="/tag"> Tag </Link>
             { children }
         </ul>
       </NavBar>
@@ -20,21 +22,28 @@ export default function Nav({ children }) {
 const NavWrapper = styled.nav`
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  width: 100vw;
+  justify-content: center;
+  width: 100%;
   height: 10vh;
-  position: fixed;
+  z-index: 10;
+`;
+
+const Logo = styled.label`
+  font-size: 2rem;
+  font-weight: 400;
 `;
 
 const NavBar = styled.div`
-  width: 40vw;
+  width: 40%;
   height: 10vh;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 1.1rem;
 
   ul {
     list-style: none;
-    width: 100%;
+    width: 20%;
     display: flex;
     align-items: center;
     justify-content: space-around;

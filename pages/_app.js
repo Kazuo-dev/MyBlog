@@ -1,17 +1,18 @@
-// import GlobalStyle from '../styles/globalStyles';
 import '../styles/normalize.css';
 import { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
-// import '../styles/globals.scss';
 import { lightTheme, darkTheme, GlobalStyles, DarkMode, AppWrapper, MainWrapper } from '../styles/ThemeConfig';
 import Nav from '../component/Nav/Nav';
+import { CgSun } from 'react-icons/cg';
+import { HiMoon } from 'react-icons/hi';
+import Footer from '../component/Footer/Footer';
 
 function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = useState('light');
-
   const toggleTheme = () => {
     theme == 'light' ? setTheme('dark') : setTheme('light')
   }
+  const icon = theme == 'light' ? <HiMoon /> : <CgSun />
 
   return (
     <>
@@ -19,11 +20,14 @@ function MyApp({ Component, pageProps }) {
         <GlobalStyles />
         <AppWrapper>
           <Nav>
-            <DarkMode onClick={toggleTheme} />
+            <DarkMode onClick={toggleTheme}>
+              { icon }
+            </DarkMode>
           </Nav>
           <MainWrapper>
             <Component {...pageProps} />
           </MainWrapper>
+          <Footer />
         </AppWrapper>
       </ThemeProvider>
     </>
