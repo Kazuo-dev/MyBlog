@@ -26,12 +26,26 @@ export default function blog({ posts }) {
     return (
         <div>
           <hr />
-          <Posts />
+            <Posts />
         </div>
     )
 }
 
 const Post = styled.article`
+h2 {
+  width: fit-content;
+  transition: .3s;
+  cursor: pointer;
+  color: lightgreen;
+
+  &:hover {
+          opacity: .5;
+        }
+}
+
+@media (min-width: 2000px) {
+        font-size: 1.1vw;
+      }
   `;
 
 export async function getStaticProps(){

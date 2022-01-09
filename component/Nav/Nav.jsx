@@ -21,19 +21,31 @@ export default function Nav({ children }) {
 const NavWrapper = styled.nav`
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 100%;
+  justify-content: space-evenly;
+  width: 40%;
   height: 10vh;
   z-index: 10;
+
+  @media (max-width: 1400px) {
+      width: 60%;
+   }
+
+  @media (max-width: 870px) {
+    width: 80%;
+  }
 `;
 
 const Logo = styled.label`
   font-size: 2rem;
   font-weight: 400;
+
+  @media (min-width: 2000px) {
+        font-size: 1.4vw;
+      }
 `;
 
 const NavBar = styled.div`
-  width: 40%;
+  width: 100%;
   height: 10vh;
   display: flex;
   justify-content: space-between;
@@ -48,6 +60,10 @@ const NavBar = styled.div`
     justify-content: space-around;
     font-size: 1.2rem;
 
+    @media (min-width: 2000px) {
+        font-size: 1.4vw;
+      }
+
     a {
       text-decoration: none;
       color: ${({ theme }) => theme.text};
@@ -55,7 +71,7 @@ const NavBar = styled.div`
       font-weight: 200;
 
       &:hover {
-        transform: scale(1.1);
+        color: lightgray;
       }
     }
   }
