@@ -11,7 +11,6 @@ export default function Nav({ children }) {
         </Link>
         <ul>
             <Link href="/blog"> Blog </Link>
-            <Link href="/tag"> Tag </Link>
             { children }
         </ul>
       </NavBar>

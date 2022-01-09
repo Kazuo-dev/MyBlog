@@ -5,20 +5,22 @@ import { getAllFilesMetadata } from '../lib/mdx';
 import Link from 'next/link';
 
 export default function Home({ posts }) {
-  const recentsposts = posts.slice(0, 3);
+  const sortedPosts = posts.sort(function(a,b){
+    return new Date(b.date) - new Date(a.date);
+  }).slice(0, 3);
 
   return (
     <HomeWrapper>
-      <Title> Hi, my name is <strong style={{'color': 'blue'}}> Marcelo </strong> and Im a <strong style={{'color': 'blue'}}> Frontend Developer </strong> </Title>
+      <Title> Hi, my name is <strong style={{'color': 'blue'}}> DoDo </strong> and Im a <strong style={{'color': 'blue'}}> Frontend Developer </strong> </Title>
       <AboutMe>
         <ImageWrapper>
           <Image src={MeImage} alt="image-me" layout="fill" />
         </ImageWrapper>
-        <p style={{ 'fontStyle': 'italic' }}> {'"'}I build things using React, Node, PHP, and more. Currently, Im a Software Engineer working on D&D Beyond at Fandom. You can follow me on Twitter at @iam_timsmith. {'"'}</p>
+        <p style={{ 'fontStyle': 'italic' }}>{'"'} Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci officia quam, exercitationem illum libero perferendis mollitia temporibus, quaerat voluptas placeat explicabo! Minus deserunt aliquam suscipit voluptates earum reprehenderit ipsam exercitationem.  {'"'}</p>
       </AboutMe>
       <RecentPosts>
         <h2> Recent Posts </h2>
-        {recentsposts.map (post => ( 
+        {sortedPosts.map (post => ( 
             <Post key={post.slug}>
               <Link href={`/blog/${post.slug}`}>
                 <div> {post.title} &rarr; </div>
@@ -27,7 +29,7 @@ export default function Home({ posts }) {
             </Post>
           ))}
       </RecentPosts>
-      <Link href="/blog"> Ver todos los posts &rarr;</Link>
+      <Link href="/blog"> View more posts &rarr;</Link>
     </HomeWrapper>
   )
 }
@@ -114,6 +116,7 @@ const RecentPosts = styled.section`
         text-decoration: none;
         font-size: 1.7rem;
         color: ${({ theme }) => theme.text};
+        opacity: .6;
         transition: .3s;
         font-weight: 600;
         width: 50%;

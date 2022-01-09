@@ -16,6 +16,16 @@ export const darkTheme = {
   color: 'white',
 }
 
+export const P = styled.p`
+  font-size: 1.4rem;
+`;
+
+export const H2 = styled.h2`
+  font-size: 2.5rem;
+`;
+
+// TO DO: ADD STYLES FOR POSTS AND BLOG :D
+
 export const DarkMode = styled.button`
   margin-right: 5%;
   border: none;
