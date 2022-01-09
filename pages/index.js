@@ -42,10 +42,6 @@ const HomeWrapper = styled.main`
   flex-direction: column;
   justify-content: center;
 
-  & hr {
-    width: 100%;
-  }
-
   & > a {
     text-align: center;
     text-decoration: underline 2px solid;
@@ -86,8 +82,8 @@ const Title = styled.h2`
   `;
 
 const ImageWrapper = styled.div`
-  height: 50px;
-  width: 50px;
+  height: 100px;
+  width: 100px;
   display: flex;
   position: relative;
   align-items: center;
@@ -98,6 +94,11 @@ const ImageWrapper = styled.div`
   border-radius: 300px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 5% 5% 5% 5%;
+
+  @media (max-width: 1100px) {
+      height: 50px;
+      width: 50px;
+    }
 
   @media (min-width: 2000px) {
       height: 6vw;
@@ -111,8 +112,8 @@ const AboutMe = styled.section`
   grid-template-columns: 20% auto;
   align-items: center;
   gap: 5%;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid ${({ theme }) => theme.text};
+  border-bottom: 1px solid ${({ theme }) => theme.text};
 
 
   @media (max-width: 870px) {
@@ -124,6 +125,11 @@ const AboutMe = styled.section`
   & p {
     font-size: 1.3rem;
     opacity: .7;
+    margin: 5% 5% 5% 5%;
+
+    @media (max-width: 1100px) {
+      font-size: 1rem;
+    }
 
     @media (min-width: 2000px) {
       font-size: 1.3vw;

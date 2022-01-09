@@ -31,7 +31,7 @@ export const AppWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   color: ${({ theme }) => theme.text};
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
   transition: all 0.30s linear;
   width: 100%;
 

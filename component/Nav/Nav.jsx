@@ -61,7 +61,7 @@ const NavBar = styled.div`
     font-size: 1.2rem;
 
     @media (min-width: 2000px) {
-        font-size: 1.4vw;
+        font-size: 1vw;
       }
 
     a {
