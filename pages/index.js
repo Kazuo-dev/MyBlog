@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Image from 'next/image';
-import MeImage from '../assets/images/jpg/yellow.jpg';
+import MeImage from '../assets/images/jpg/yellow.webp';
 import { getAllFilesMetadata } from '../lib/mdx';
 import Link from 'next/link';
 
