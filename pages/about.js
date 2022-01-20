@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 export default function about() {
   return (
-     <AboutWrapper>
-        <h3> about </h3>
+    <AboutWrapper>
+      <h3> about </h3>
     </AboutWrapper>
   )
 }
