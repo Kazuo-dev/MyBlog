@@ -14,7 +14,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <title> hola </title>
+        <title> Blog </title>
 
         <body>
           <Main />
