@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import Link from 'next/link';
+import React from "react";
+import styled from "styled-components";
+import Link from "next/link";
 
 export default function Nav({ children }) {
   return (
@@ -10,12 +10,12 @@ export default function Nav({ children }) {
           <Logo> DoDoDev! </Logo>
         </Link>
         <ul>
-            <Link href="/blog"> Blog </Link>
-            { children }
+          <Link href="/blog"> Blog </Link>
+          {children}
         </ul>
       </NavBar>
     </NavWrapper>
-    )
+  );
 }
 
 const NavWrapper = styled.nav`
@@ -27,8 +27,8 @@ const NavWrapper = styled.nav`
   z-index: 10;
 
   @media (max-width: 1400px) {
-      width: 60%;
-   }
+    width: 60%;
+  }
 
   @media (max-width: 870px) {
     width: 80%;
@@ -40,8 +40,8 @@ const Logo = styled.label`
   font-weight: 400;
 
   @media (min-width: 2000px) {
-        font-size: 1.4vw;
-      }
+    font-size: 1.4vw;
+  }
 `;
 
 const NavBar = styled.div`
@@ -61,8 +61,8 @@ const NavBar = styled.div`
     font-size: 1.2rem;
 
     @media (min-width: 2000px) {
-        font-size: 1vw;
-      }
+      font-size: 1vw;
+    }
 
     a {
       text-decoration: none;

@@ -1,4 +1,4 @@
-import { P, H2} from "../styles/ThemeConfig";
+import { P, H2 } from "../styles/ThemeConfig";
 // importar styled components! :D
 
 export default  {

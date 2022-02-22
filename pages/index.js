@@ -1,37 +1,49 @@
-import styled from 'styled-components';
-import Image from 'next/image';
-import MeImage from '../assets/images/jpg/yellow.webp';
-import { getAllFilesMetadata } from '../lib/mdx';
-import Link from 'next/link';
+import styled from "styled-components";
+import Image from "next/image";
+import MeImage from "../assets/images/jpg/yellow.webp";
+import { getAllFilesMetadata } from "../lib/mdx";
+import Link from "next/link";
 
 export default function Home({ posts }) {
-  const sortedPosts = posts.sort(function(a,b){
-    return new Date(b.date) - new Date(a.date);
-  }).slice(0, 3);
+  const sortedPosts = posts
+    .sort(function (a, b) {
+      return new Date(b.date) - new Date(a.date);
+    })
+    .slice(0, 3);
 
   return (
     <HomeWrapper>
-      <Title> Hi, my name is <strong> DoDo </strong> and Im a <strong> Frontend Developer </strong> </Title>
+      <Title>
+        {" "}
+        Hi, my name is <strong> DoDo </strong> and Im a{" "}
+        <strong> Frontend Developer </strong>{" "}
+      </Title>
       <AboutMe>
         <ImageWrapper>
           <Image src={MeImage} alt="image-me" layout="fill" />
         </ImageWrapper>
-        <p style={{ 'fontStyle': 'italic' }}>{'"'} Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci officia quam, exercitationem illum libero perferendis mollitia temporibus, quaerat voluptas placeat explicabo! Minus deserunt aliquam suscipit voluptates earum reprehenderit ipsam exercitationem.  {'"'}</p>
+        <p style={{ fontStyle: "italic" }}>
+          {'"'} Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Adipisci officia quam, exercitationem illum libero perferendis
+          mollitia temporibus, quaerat voluptas placeat explicabo! Minus
+          deserunt aliquam suscipit voluptates earum reprehenderit ipsam
+          exercitationem. {'"'}
+        </p>
       </AboutMe>
       <RecentPosts>
         <h2> Recent Posts </h2>
-        {sortedPosts.map (post => ( 
-            <Post key={post.slug}>
-              <Link href={`/blog/${post.slug}`}>
-                <div> {post.title} &rarr; </div>
-              </Link> 
-              <p> { post.description } </p>
-            </Post>
-          ))}
+        {sortedPosts.map((post) => (
+          <Post key={post.slug}>
+            <Link href={`/blog/${post.slug}`}>
+              <div> {post.title} &rarr; </div>
+            </Link>
+            <p> {post.description} </p>
+          </Post>
+        ))}
       </RecentPosts>
       <Link href="/blog"> View more posts &rarr;</Link>
     </HomeWrapper>
-  )
+  );
 }
 
 const HomeWrapper = styled.main`
@@ -50,12 +62,10 @@ const HomeWrapper = styled.main`
     margin: 0 auto;
 
     @media (min-width: 2000px) {
-        font-size: 1.1vw;
+      font-size: 1.1vw;
     }
   }
 `;
-
-
 
 const Title = styled.h2`
   font-size: 3.5rem;
@@ -68,8 +78,8 @@ const Title = styled.h2`
   }
 
   @media (max-width: 1100px) {
-      font-size: 2.5rem;
-   }
+    font-size: 2.5rem;
+  }
 
   @media (max-width: 870px) {
     width: 100vw;
@@ -77,9 +87,9 @@ const Title = styled.h2`
   }
 
   @media (min-width: 2000px) {
-      font-size: 3vw;
-    }
-  `;
+    font-size: 3vw;
+  }
+`;
 
 const ImageWrapper = styled.div`
   height: 100px;
@@ -96,15 +106,15 @@ const ImageWrapper = styled.div`
   margin: 5% 5% 5% 5%;
 
   @media (max-width: 1100px) {
-      height: 50px;
-      width: 50px;
-    }
+    height: 50px;
+    width: 50px;
+  }
 
   @media (min-width: 2000px) {
-      height: 6vw;
-      width: 6vw;
-    }
-  `;
+    height: 6vw;
+    width: 6vw;
+  }
+`;
 
 const AboutMe = styled.section`
   width: 100%;
@@ -115,16 +125,15 @@ const AboutMe = styled.section`
   border-top: 1px solid ${({ theme }) => theme.text};
   border-bottom: 1px solid ${({ theme }) => theme.text};
 
-
   @media (max-width: 870px) {
     display: flex;
     flex-direction: column;
     text-align: center;
-   }
+  }
 
   & p {
     font-size: 1.3rem;
-    opacity: .7;
+    opacity: 0.7;
     margin: 5% 5% 5% 5%;
 
     @media (max-width: 1100px) {
@@ -142,51 +151,50 @@ const RecentPosts = styled.section`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  
-  & h2 {
-      width: 100%;
-      font-size: 2rem;
-      
-      @media (min-width: 2000px) {
-        font-size: 2vw;
-      }
-    }
-  `;
 
-  const Post = styled.div`
+  & h2 {
     width: 100%;
-    height: fit-content;
-    min-height: 150px;
-    display: flex;
-    flex-direction: column;
+    font-size: 2rem;
+
+    @media (min-width: 2000px) {
+      font-size: 2vw;
+    }
+  }
+`;
+
+const Post = styled.div`
+  width: 100%;
+  height: fit-content;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 2000px) {
+    font-size: 1.5vw;
+  }
+
+  & div {
+    text-decoration: none;
+    font-size: 1.7rem;
+    width: fit-content;
+    transition: 0.1s linear;
+    font-weight: 600;
+    cursor: pointer;
+    color: lightgreen;
 
     @media (min-width: 2000px) {
       font-size: 1.5vw;
-    } 
-
-    & div {
-        text-decoration: none;
-        font-size: 1.7rem;
-        width: fit-content;
-        transition: .1s linear;
-        font-weight: 600;
-        cursor: pointer;
-        color: lightgreen;
-
-        @media (min-width: 2000px) {
-         font-size: 1.5vw;
-        } 
-                
-        &:hover {
-          opacity: .3;
-        }
     }
-  `;
-  
 
-export async function getStaticProps(){
+    &:hover {
+      opacity: 0.3;
+    }
+  }
+`;
+
+export async function getStaticProps() {
   const posts = getAllFilesMetadata();
   return {
-    props: { posts }
-  }
-};
+    props: { posts },
+  };
+}

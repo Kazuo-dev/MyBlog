@@ -1,12 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 export default function about() {
   return (
     <AboutWrapper>
       <h3> about </h3>
     </AboutWrapper>
-  )
+  );
 }
 
 const AboutWrapper = styled.div`
